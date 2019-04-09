@@ -31,6 +31,7 @@ namespace DeployableWebApi.Controllers
             catch (Exception ex)
             {
                 logger.Error(ex, "Query {query} is not supported.");
+                throw;
             }
             return Content("This is some content");
         }
