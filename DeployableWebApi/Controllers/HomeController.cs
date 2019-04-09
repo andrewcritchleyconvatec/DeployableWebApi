@@ -20,6 +20,7 @@ namespace DeployableWebApi.Controllers
         public ActionResult CustomSuperAction(string query)
         {
             var logger = CreateLogger();
+            var random = new Random();
 
             logger.Information("The user asked for {query}", query);
 
@@ -33,7 +34,7 @@ namespace DeployableWebApi.Controllers
                 logger.Error(ex, "Query {query} is not supported.");
                 throw;
             }
-            return Content("This is some content");
+            return Content("This is some content. " + random.Next(0, int.MaxValue));
         }
 
         private ILogger CreateLogger()
